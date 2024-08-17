@@ -1,0 +1,26 @@
+CREATE DATABASE Papelaria;
+
+use Papelaria;
+
+CREATE TABLE Produtos (
+    id INT PRIMARY KEY IDENTITY,
+    nome NVARCHAR(255) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    descricao TEXT,
+    imagem NVARCHAR(255)
+);
+
+-- Exemplo de inserção de produtos
+INSERT INTO Produtos (nome, preco, descricao, imagem)
+VALUES 
+('Caneta', 10.00, 'Caneta Azul', 'https://ogbrindes.fbitsstatic.net/img/p/caneta-plastica-touch-er198b-151534/340268.jpg?w=256&h=256'),
+('Folha sulfite A4', 19.99, 'Marca: Chamex,Cor	Papel Sulfite A4, Peso do produto:2,3 Quilogramas,Tamanho da folha:210x297,Contagem de folhas:500', 'https://m.media-amazon.com/images/I/41qhx9tyahL._AC_.jpg'),
+('Caderno', 20.00, 'Capa dura com 500 folhas ', 'https://m.media-amazon.com/images/I/61xhUjLHCdL._AC_SX679_.jpg'),
+('Mochila',100.00 ,'Mochila escolar', 'https://m.media-amazon.com/images/I/31nRUCu5HqL._AC_.jpg'),
+('lapiseira', 20.00 ,'lapiseira 0.7mm', 'https://cdnv2.moovin.com.br/marbig/imagens/produtos/det/lapiseira-0-7mm-i-point-preta-img-89801.jpg'),
+('papel para presente',15.00 ,' papel decorado para embulhar lembranças ','https://cdn.dooca.store/108216/products/l0mteplebosqsly5urbb2yqxvzzjvh3vlyjd_640x640+fill_ffffff.jpeg?v=1679360940&webp=0'),
+('Marca texto',10.00 ,'marca texto verde', 'https://cdn.awsli.com.br/600x700/1356/1356487/produto/210411479/marca-texto-jocar-verde-96012-xzmdsq.jpg'),
+('Borracha',5.00,'borracha verde ','https://www.tilibra.com.br/storage/products/md/borracha-escolar-verde-grande_324744-e2.jpg?c=16a5242ee87fba9ab6d86deddf895832');
+;
+
+
