@@ -1,0 +1,131 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Produtos</title>
+    
+</head>
+<body>
+    <h1>Produtos Disponíveis</h1>
+    <div class="container" id="produtos-container">
+        
+    </div>
+    <div class="container" id="produtos-container">
+        
+    </div>
+    
+    <h2>Carrinho de Compras</h2>
+    <div id="carrinho-container">
+        <p>Seu carrinho está vazio.</p>
+    </div>
+    <button id="finalizar-compra">Finalizar Compra</button>
+    
+    <script>
+        fetch('/api/produtos')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('produtos-container');
+                container.innerHTML = ''; 
+    
+                data.forEach(produto => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${produto.imagem}" alt="${produto.nome}" class="product-image">
+                        <div class="product-details">
+                            <h2 class="product-name">${produto.nome}</h2>
+                            <p class="product-price">R$ ${produto.preco.toFixed(2)}</p>
+                            <p class="product-description">${produto.descricao}</p>
+                            <button class="add-to-cart" data-id="${produto.id}">Adicionar ao Carrinho</button>
+                        </div>
+                    `;
+                    container.appendChild(productCard);
+                });
+    
+                // Adiciona funcionalidade ao botão "Adicionar ao Carrinho"
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', addToCart);
+                });
+            })
+            .catch(error => console.error('Erro ao obter produtos:', error));
+    
+        let cart = [];
+    
+        function addToCart(event) {
+            const productId = event.target.getAttribute('data-id');
+            // Aqui você pode procurar o produto no array de dados obtidos e adicioná-lo ao carrinho
+            const produto = data.find(p => p.id == productId);
+            cart.push(produto);
+            updateCart();
+        }
+    
+        function updateCart() {
+            const carrinhoContainer = document.getElementById('carrinho-container');
+            carrinhoContainer.innerHTML = '';
+    
+            if (cart.length === 0) {
+                carrinhoContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+            } else {
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.innerHTML = `
+                        <p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+                    `;
+                    carrinhoContainer.appendChild(cartItem);
+                });
+            }
+        }
+    </script>
+    
+
+     <script>
+        // Fazer requisição para o servidor e obter os dados dos produtos
+        fetch('/api/produtos')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('produtos-container');
+                container.innerHTML = ''; // Limpar o container
+
+                // Inserir produtos no container
+                data.forEach(produto => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${produto.imagem}" alt="${produto.nome}" class="product-image">
+                        <div class="product-details">
+                            <h2 class="product-name">${produto.nome}</h2>
+                            <p class="product-price">R$ ${produto.preco.toFixed(2)}</p>
+                            <p class="product-description">${produto.descricao}</p>
+                        </div>
+                    `;
+                    container.appendChild(productCard);
+                });
+            })
+            .catch(error => console.error('Erro ao obter produtos:', error));
+    </script> 
+</html> -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Produtos Disponíveis</h1>
+    <div class="container" id="produtos-container">
+        <!-- Os produtos serão inseridos aqui -->
+    </div>
+
+    <h2>Carrinho de Compras</h2>
+    <div id="carrinho-container">
+        <p>Seu carrinho está vazio.</p>
+    </div>
+    <button id="finalizar-compra">Finalizar Compra</button>
+
+    <script src="controler.js"></script>
+</body>
+</html>
