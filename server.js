@@ -39,10 +39,7 @@ sql.connect(dbConfig).then(pool => {
     }
   });
 
-  // Rota raiz
-  app.get('/', (req, res) => {
-    res.send('Bem-vindo à aplicação de e-commerce!');
-  });
+  
 }).catch(err => {
   console.error('Erro ao conectar ao banco de dados:', err);
 });
